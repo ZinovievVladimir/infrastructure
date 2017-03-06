@@ -1,6 +1,11 @@
-#include "add.h"
+#include "treefind.h"
 #include <iostream>
 
 int main() {
-  std::cout << "2 + 2 = " << add(2, 2) << std::endl;
+  CNode* t = CreateTree();
+  PrintTree(&t);
+
+  int num = 7;
+  CNode** nt = find(&t, num);
+  std::cout << "finded (" << num << "): " << nt << std::endl;
 }
