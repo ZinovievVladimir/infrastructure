@@ -5,7 +5,7 @@ CNode* CreateTree(int* m, int l) {
   std::queue<int> ql, qr;
   std::queue<CNode**> qt;
   CNode* tree;
-  int mid, left, right;
+  int mid;
 
   if (m == nullptr)
     return nullptr;
