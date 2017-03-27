@@ -1,6 +1,10 @@
-#include "add.h"
+#include "way.h"
 #include <iostream>
 
+using std::cout;
+
 int main() {
-  std::cout << "2 + 2 = " << add(2, 2) << std::endl;
+  
+  cout << min_way(-4, 5);
+
 }
