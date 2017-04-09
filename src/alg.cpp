@@ -1,7 +1,8 @@
 #include <vector>
 #include <utility>
 #include <set>
-#include <exception>
+#include <stdexcept>
+#include <limits.h>
 
 using std::vector;
 using std::pair;
@@ -14,7 +15,7 @@ bool all_false(bool* a, int b) {
 }
 
 vector<int> alg(vector< vector < pair < int, int > > > ls, int a) {
-  if (a >= ls.size()) {
+  if (a >= (int)ls.size()) {
     throw std::logic_error("Wrong Vertex!");
   }
   std::set <pair <int, int> > T;
