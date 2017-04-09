@@ -29,11 +29,24 @@ vector< vector< std::pair< int, int > > > CreateTestGraph() {
   return test;
 }
 
-TEST(Dijkstra, WorkAlg) {
+TEST(Dijkstra, WorkAlg1) {
   auto gr = CreateTestGraph();
-  vector<int> TrueWays = { 0,  4, 6, 5, 8, 6, 8};
+  vector<int> TrueWays = { 0,  4, 6, 5, 8, 6, 8 };
 
-  vector<int> ways = alg(gr, 7);
+  vector<int> ways = alg(gr, 0);
 
   EXPECT_EQ(ways, TrueWays);
+}
+
+TEST(Dijkstra, OneVertex) {
+  vector < vector < pair<int, int> > > gr(1);
+  vector <int> res = alg(gr, 0);
+  EXPECT_EQ(res[0], 0);
+}
+
+TEST(Dijkstra, IncorrectVertex) {
+  vector < vector < pair<int, int> > > gr1;
+  EXPECT_ANY_THROW(alg(gr1, 1));
+  vector < vector < pair<int, int> > > gr2(7);
+  EXPECT_ANY_THROW(alg(gr2, 8));
 }

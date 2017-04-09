@@ -20,5 +20,4 @@ set(LINTING_COMMAND python ${LINTING_APP} --extensions=cpp,hpp,h,cc,c)
 include_directories(include)
 
 add_subdirectory(src)
-add_subdirectory(app)
 add_subdirectory(test)
