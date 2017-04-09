@@ -15,7 +15,7 @@ bool all_false(bool* a, int b) {
 }
 
 vector<int> alg(vector< vector < pair < int, int > > > ls, int a) {
-  if (a >= (int)ls.size()) {
+  if (a >= static_cast<int>(ls.size())) {
     throw std::logic_error("Wrong Vertex!");
   }
   std::set <pair <int, int> > T;
