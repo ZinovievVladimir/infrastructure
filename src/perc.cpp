@@ -12,8 +12,7 @@ void Union(int* mas, int* len, int a, int b) {
   if (len[a] > len[b]) {
     len[a] += 1;
     mas[b] = mas[a];
-  }
-  else {
+  } else {
     len[b] += 1;
     mas[a] = mas[b];
   }
