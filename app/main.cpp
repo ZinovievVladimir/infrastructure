@@ -44,7 +44,5 @@ int main() {
       ret += v[i];
     std::cout << ret / k << std::endl;
   }
-  
-  
   return 0;
 }
