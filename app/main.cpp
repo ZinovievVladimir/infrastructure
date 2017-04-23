@@ -39,12 +39,12 @@ int main() {
 
     count /= n * n;
     v.push_back(count);
-    
     k++;
     for (int i = 0; i < k; i++)
       ret += v[i];
     std::cout << ret / k << std::endl;
   }
+  
   
   return 0;
 }
