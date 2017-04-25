@@ -12,8 +12,7 @@ void Union(int* mas, int* len, int a, int b) {
   if (len[a] > len[b]) {
     len[a] += 1;
     mas[b] = mas[a];
-  }
-  else {
+  } else {
     len[b] += 1;
     mas[a] = mas[b];
   }
@@ -34,22 +33,26 @@ bool perc(bool** arr, int n) {
 
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      if (i != 0)
+      if (i != 0) {
         if (arr[i - 1][j] == true) {
           Union(mas, len, (i - 1) * n + j, i * n + j);
         }
-      if (j != 0)
+      }
+      if (j != 0) {
         if (arr[i][j - 1] == true) {
           Union(mas, len, i * n + j - 1, i * n + j);
         }
-      if (i != n - 1)
+      }
+      if (i != n - 1) {
         if (arr[i + 1][j] == true) {
           Union(mas, len, (i + 1) * n + j, i * n + j);
         }
-      if (j != n - 1)
+      }
+      if (j != n - 1) {
         if (arr[i][j + 1] == true) {
           Union(mas, len, i * n + j + 1, i * n + j);
         }
+      }
       if (Find(mas, 0) == Find(mas, n*n - n)) {
         delete[] mas;
         delete[] len;
