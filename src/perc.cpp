@@ -33,30 +33,32 @@ bool perc(bool** arr, int n) {
 
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      if (i != 0) {
-        if (arr[i - 1][j] == true) {
-          Union(mas, len, (i - 1) * n + j, i * n + j);
+      if (arr[i][j]) {
+        if (i != 0) {
+          if (arr[i - 1][j] == true) {
+            Union(mas, len, (i - 1) * n + j, i * n + j);
+          }
         }
-      }
-      if (j != 0) {
-        if (arr[i][j - 1] == true) {
-          Union(mas, len, i * n + j - 1, i * n + j);
+        if (j != 0) {
+          if (arr[i][j - 1] == true) {
+            Union(mas, len, i * n + j - 1, i * n + j);
+          }
         }
-      }
-      if (i != n - 1) {
-        if (arr[i + 1][j] == true) {
-          Union(mas, len, (i + 1) * n + j, i * n + j);
+        if (i != n - 1) {
+          if (arr[i + 1][j] == true) {
+            Union(mas, len, (i + 1) * n + j, i * n + j);
+          }
         }
-      }
-      if (j != n - 1) {
-        if (arr[i][j + 1] == true) {
-          Union(mas, len, i * n + j + 1, i * n + j);
+        if (j != n - 1) {
+          if (arr[i][j + 1] == true) {
+            Union(mas, len, i * n + j + 1, i * n + j);
+          }
         }
-      }
-      if (Find(mas, 0) == Find(mas, n*n - n)) {
-        delete[] mas;
-        delete[] len;
-        return true;
+        if (Find(mas, 0) == Find(mas, n*n - n)) {
+          delete[] mas;
+          delete[] len;
+          return true;
+        }
       }
     }
   }
