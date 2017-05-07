@@ -140,7 +140,6 @@ void FillAround(bool **a, int **B, int m, int n, int cura, int curb,
 }
 
 void isl_sh(bool** arr, int n, int m) {
-  int size = (n + 2)*(m + 2);
   queue< std::pair< int, int > > q;
 
   bool** newmas = new bool*[n + 2];
