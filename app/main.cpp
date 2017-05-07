@@ -17,8 +17,7 @@ int main() {
     for (int j = 0; j < m; j++) {
       if (rand() % 2 == 0) {
         island[i][j] = false;
-      }
-      else {
+      } else {
         island[i][j] = true;
       }
       std::cout << island[i][j] << ' ';
@@ -41,8 +40,7 @@ int main() {
     for (int j = 0; j < m; j++) {
       if (rand() % 2 == 0) {
         island[i][j] = false;
-      }
-      else {
+      } else {
         island[i][j] = true;
       }
       std::cout << island[i][j] << ' ';
