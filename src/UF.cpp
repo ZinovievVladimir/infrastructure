@@ -110,11 +110,11 @@ void isl(bool** arr, int n, int m) {
 
 
 void FillAround(bool **a, int **B, int m, int n, int cura, int curb,
-   queue< std::pair<int,int> > q) {
+  queue< std::pair<int, int> > q) {
   if (cura + 1 < m) {
     if ((a[cura + 1][curb] == true) && (B[cura + 1][curb] == 0)) {
       B[cura + 1][curb] = 1;
-      q.push(std::pair<int,int>(cura + 1, curb));
+      q.push(std::pair<int, int>(cura + 1, curb));
     }
   }
   if (curb + 1 < n) {
@@ -123,14 +123,14 @@ void FillAround(bool **a, int **B, int m, int n, int cura, int curb,
       q.push(std::pair<int, int>(cura, curb + 1));
     }
   }
-  
+
   if (cura > 0) {
     if ((a[cura - 1][curb] == true) && (B[cura - 1][curb] == 0)) {
       B[cura - 1][curb] = 1;
       q.push(std::pair<int, int>(cura - 1, curb));
     }
   }
-  
+
   if (curb > 0) {
     if ((a[cura][curb - 1] == true) && (B[cura][curb - 1] == 0)) {
       B[cura][curb - 1] = 1;
