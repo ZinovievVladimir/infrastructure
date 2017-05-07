@@ -110,31 +110,31 @@ void isl(bool** arr, int n, int m) {
 
 
 void FillAround(bool **a, int **B, int m, int n, int cura, int curb,
-  queue< std::pair<int, int> > q) {
+  queue< std::pair<int, int> > *q) {
   if (cura + 1 < m) {
     if ((a[cura + 1][curb] == true) && (B[cura + 1][curb] == 0)) {
       B[cura + 1][curb] = 1;
-      q.push(std::pair<int, int>(cura + 1, curb));
+      q->push(std::pair<int, int>(cura + 1, curb));
     }
   }
   if (curb + 1 < n) {
     if ((a[cura][curb + 1] == true) && (B[cura][curb + 1] == 0)) {
       B[cura][curb + 1] = 1;
-      q.push(std::pair<int, int>(cura, curb + 1));
+      q->push(std::pair<int, int>(cura, curb + 1));
     }
   }
 
   if (cura > 0) {
     if ((a[cura - 1][curb] == true) && (B[cura - 1][curb] == 0)) {
       B[cura - 1][curb] = 1;
-      q.push(std::pair<int, int>(cura - 1, curb));
+      q->push(std::pair<int, int>(cura - 1, curb));
     }
   }
 
   if (curb > 0) {
     if ((a[cura][curb - 1] == true) && (B[cura][curb - 1] == 0)) {
       B[cura][curb - 1] = 1;
-      q.push(std::pair<int, int>(cura, curb - 1));
+      q->push(std::pair<int, int>(cura, curb - 1));
     }
   }
 }
@@ -168,7 +168,7 @@ void isl_sh(bool** arr, int n, int m) {
     int i = q.front().first;
     int j = q.front().second;
     q.pop();
-    FillAround(newmas, mas12, n + 2, m + 2, i, j, q);
+    FillAround(newmas, mas12, n + 2, m + 2, i, j, &q);
   }
 
   for (int i = 0; i < n + 2; i++) {
