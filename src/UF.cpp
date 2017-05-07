@@ -164,7 +164,7 @@ void isl_sh(bool** arr, int n, int m) {
       mas12[i][j] = 0;
 
   mas12[0][0] = 1;
-  q.push(std::pair<int, int>(0,0));
+  q.push(std::pair<int, int>(0, 0));
   while (!q.empty()) {
     int i = q.front().first;
     int j = q.front().second;
