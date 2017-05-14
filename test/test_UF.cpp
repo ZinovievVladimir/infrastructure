@@ -32,7 +32,7 @@ TEST(union_find, can_find) {
 
 TEST(union_find, can_union) {
   UF a(2);
-  ASSERT_NO_THROW(a.Union(0,1));
+  ASSERT_NO_THROW(a.Union(0, 1));
 }
 
 TEST(union_find, find_is_right) {

@@ -14,7 +14,7 @@ int UF::Find(int a) {
 }
 
 void UF::Union(int a, int b) {
-  if ((a < 0) || (b < 0) || 
+  if ((a < 0) || (b < 0) ||
     (a - 1 > size) || (b - 1 > size)) {
     throw std::logic_error("position <=0");
   } else {
@@ -23,8 +23,7 @@ void UF::Union(int a, int b) {
     if (len[a] > len[b]) {
       len[a] += 1;
       arr[b] = arr[a];
-    }
-    else {
+    } else {
       len[b] += 1;
       arr[a] = arr[b];
     }
