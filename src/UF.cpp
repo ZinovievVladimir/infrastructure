@@ -1,22 +1,33 @@
 #include "UF.h"
+#include "stdexcept"
 
 int UF::Find(int a) {
-  a = arr[a];
-  while (a != arr[a]) {
+  if ((a < 0) || (a - 1) > size) {
+    throw std::logic_error("position <0");
+  } else {
     a = arr[a];
+    while (a != arr[a]) {
+      a = arr[a];
+    }
+    return a;
   }
-  return a;
 }
 
 void UF::Union(int a, int b) {
-  a = Find(a);
-  b = Find(b);
-  if (len[a] > len[b]) {
-    len[a] += 1;
-    arr[b] = arr[a];
+  if ((a < 0) || (b < 0) || 
+    (a - 1 > size) || (b - 1 > size)) {
+    throw std::logic_error("position <=0");
   } else {
-    len[b] += 1;
-    arr[a] = arr[b];
+    a = Find(a);
+    b = Find(b);
+    if (len[a] > len[b]) {
+      len[a] += 1;
+      arr[b] = arr[a];
+    }
+    else {
+      len[b] += 1;
+      arr[a] = arr[b];
+    }
   }
 }
 
