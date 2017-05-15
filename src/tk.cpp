@@ -15,8 +15,8 @@ vector< int > tk(vector <pair <int, int> > p, int n) {
       bool why = true;
       for (int k = 0; k < size; k++) {
         if (((mn.Find(p[k].first) == a) &&
-            (mn.Find(p[k].second) == b)
-          || (mn.Find(p[k].first) == b) &&
+            (mn.Find(p[k].second) == b))
+          || ((mn.Find(p[k].first) == b) &&
             (mn.Find(p[k].second) == a))) {
           why = false;
           break;
