@@ -68,6 +68,9 @@ vector<edge> Kruskal(vector< vector< int > > MI) {
   vector<edge> gr;
   vector<edge> ret;
 
+  if (MI.size() == 0)
+    throw std::logic_error("vector is 0-size");
+
   for (auto it = MI.begin(); it < MI.end(); it++) {
     int j = 0;
 
@@ -107,6 +110,9 @@ vector<edge> Kruskal(vector< vector< int > > MI) {
 vector<edge> Prim(vector< vector< int > > list) {
   vector<edge> gr;
   vector<edge> ret;
+
+  if (list.size() == 0)
+    throw std::logic_error("vector is 0-size");
 
   for (auto it = list.begin(); it < list.end(); it++) {
     gr.push_back(edge((*it)[0], (*it)[1], (*it)[2]));
