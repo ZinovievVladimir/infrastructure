@@ -48,7 +48,7 @@ TEST(algKruskal, work_with_cycle_graph) {
   m.push_back(edge(2, 3));
 
 
-  for (int i = 0; i < a.size(); i++) {
+  for (unsigned int i = 0; i < a.size(); i++) {
     EXPECT_EQ(m[i].f, a[i].f);
     EXPECT_EQ(m[i].s, a[i].s);
   }
@@ -66,7 +66,7 @@ TEST(algPrim, work_with_cycle_graph) {
   m.push_back(edge(1, 2));
 
 
-  for (int i = 0; i < a.size(); i++) {
+  for (unsigned int i = 0; i < a.size(); i++) {
     EXPECT_EQ(m[i].f, a[i].f);
     EXPECT_EQ(m[i].s, a[i].s);
   }
@@ -83,7 +83,7 @@ TEST(algKruskal, graph1) {
   m.push_back(edge(1, 2));
   m.push_back(edge(2, 3));
 
-  for (int i = 0; i < a.size(); i++) {
+  for (unsigned int i = 0; i < a.size(); i++) {
     EXPECT_EQ(m[i].f, a[i].f);
     EXPECT_EQ(m[i].s, a[i].s);
   }
