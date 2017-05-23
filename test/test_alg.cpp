@@ -31,7 +31,8 @@ TEST(algKruskal, throw_with_0_vector) {
 }
 
 TEST(algKruskal, work_with_cycle_graph) {
-  vector < vector<int> > b = { {1,1,0,0}, {0,2,2,0}, {0,0,3,3}, {4,0,0,4} };
+  vector < vector<int> > b = { {1, 1, 0, 0}, {0, 2, 2, 0},
+    {0, 0, 3, 3}, {4, 0, 0, 4} };
 
   auto a = Kruskal(b);
 
@@ -42,7 +43,7 @@ TEST(algKruskal, work_with_cycle_graph) {
 
 
   for (int i = 0; i < a.size(); i++) {
-    EXPECT_EQ(m[i].f,a[i].f);
+    EXPECT_EQ(m[i].f, a[i].f);
     EXPECT_EQ(m[i].s, a[i].s);
   }
 }
@@ -54,7 +55,8 @@ TEST(algPrim, throw_with_0_vector) {
 }
 
 TEST(algPrim, work_with_cycle_graph) {
-  vector < vector<int> > b = { { 0,1,1 },{ 1,2,2 },{ 2,3,3 },{ 3,0,4 } };
+  vector < vector<int> > b = { { 0, 1, 1 }, { 1, 2, 2 },
+    { 2, 3, 3 }, { 3, 0, 4 } };
 
   auto a = Prim(b);
 
@@ -71,7 +73,8 @@ TEST(algPrim, work_with_cycle_graph) {
 }
 
 TEST(algKruskal, graph1) {
-  vector < vector<int> > b = { { 1,1,0,0 },{ 0,2,2,0 },{ 0,0,3,3 },{ 4,0,0,4 } };
+  vector < vector<int> > b = { { 1, 1, 0, 0 }, { 0, 2, 2, 0 },
+    { 0, 0, 3, 3 }, { 4, 0, 0, 4 } };
 
   auto a = Kruskal(b);
 
