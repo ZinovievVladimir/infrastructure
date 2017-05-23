@@ -25,7 +25,7 @@ bool all_true(bool* a, int l) {
 }
 
 void graph_to_gv(vector< edge > graph, vector< edge > ost) {
-  FILE* fp = fopen("C:\\Users\\Vladimir\\Desktop\\graph.gv", "w");
+  FILE* fp = fopen("graph.gv", "w");
 
   vector< edge > graph2;
   bool flag;
@@ -64,14 +64,9 @@ void graph_to_gv(vector< edge > graph, vector< edge > ost) {
   fclose(fp);
 }
 
-vector<edge> Kruskal(vector< vector< int > > MI) {
-  vector<edge> gr;
-  vector<edge> ret;
-
-  if (MI.size() == 0)
-    throw std::logic_error("vector is 0-size");
-
-  for (auto it = MI.begin(); it < MI.end(); it++) {
+vector< edge > MI_to_graph(vector< vector < int > > graph) {
+  vector< edge > gr;
+  for (auto it = graph.begin(); it < graph.end(); it++) {
     int j = 0;
 
     while ((*it)[j] == 0)
@@ -84,6 +79,23 @@ vector<edge> Kruskal(vector< vector< int > > MI) {
 
     gr.push_back(edge(f, s, (*it)[j]));
   }
+  return gr;
+}
+
+vector< edge > LS_to_graph(vector< vector < int > > list) {
+  vector<edge> gr;
+
+  for (auto it = list.begin(); it < list.end(); it++) {
+    gr.push_back(edge((*it)[0], (*it)[1], (*it)[2]));
+  }
+  return gr;
+}
+
+vector<edge> Kruskal(vector<edge> gr) {
+  vector<edge> ret;
+
+  if (gr.size() == 0)
+    throw std::logic_error("vector is 0-size");
 
   std::sort(gr.begin(), gr.end());
   vector<edge> tmp(gr);
@@ -102,21 +114,14 @@ vector<edge> Kruskal(vector< vector< int > > MI) {
     }
   }
 
-  graph_to_gv(tmp, ret);
-
   return ret;
 }
 
-vector<edge> Prim(vector< vector< int > > list) {
-  vector<edge> gr;
+vector<edge> Prim(vector< edge > gr) {
   vector<edge> ret;
 
-  if (list.size() == 0)
+  if (gr.size() == 0)
     throw std::logic_error("vector is 0-size");
-
-  for (auto it = list.begin(); it < list.end(); it++) {
-    gr.push_back(edge((*it)[0], (*it)[1], (*it)[2]));
-  }
 
   heap2<edge> h;
 
@@ -125,7 +130,7 @@ vector<edge> Prim(vector< vector< int > > list) {
       h.add(*it);
     }
 
-  int size = list.size();
+  int size = gr.size();
 
   bool *vrtx = new bool[size];
 
@@ -156,8 +161,6 @@ vector<edge> Prim(vector< vector< int > > list) {
       ret.push_back(min);
     }
   }
-
-  graph_to_gv(gr, ret);
 
   return ret;
 }

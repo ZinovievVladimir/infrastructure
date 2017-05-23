@@ -38,15 +38,20 @@ int main() {
   fclose(fp);
 
   vector< edge > res;
+  vector< edge > gr;
   switch (c) {
   case 1:
-    res = Kruskal(graph);
+    gr = MI_to_graph(graph);
+    res = Kruskal(gr);
     break;
   case 2:
-    res = Prim(graph);
+    gr = LS_to_graph(graph);
+    res = Prim(gr);
   }
 
-  printf("Graph is saved in graph.gv on the desktop.\n");
+  graph_to_gv(gr, res);
+
+  printf("Graph is saved in graph.gv to the folder of application.\n");
 
   return 0;
 }

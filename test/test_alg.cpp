@@ -25,16 +25,22 @@ TEST(edge, compare_is_right) {
   EXPECT_FALSE(a > b);
 }
 
+TEST(algPrim, throw_with_0_vector) {
+  vector < vector<int> > b;
+
+  ASSERT_ANY_THROW(Prim(LS_to_graph(b)));
+}
+
 TEST(algKruskal, throw_with_0_vector) {
   vector < vector<int> > b;
-  ASSERT_ANY_THROW(Kruskal(b));
+  ASSERT_ANY_THROW(Kruskal(MI_to_graph(b)));
 }
 
 TEST(algKruskal, work_with_cycle_graph) {
   vector < vector<int> > b = { {1, 1, 0, 0}, {0, 2, 2, 0},
     {0, 0, 3, 3}, {4, 0, 0, 4} };
 
-  auto a = Kruskal(b);
+  auto a = Kruskal(MI_to_graph(b));
 
   vector< edge > m;
   m.push_back(edge(0, 1));
@@ -48,17 +54,11 @@ TEST(algKruskal, work_with_cycle_graph) {
   }
 }
 
-TEST(algPrim, throw_with_0_vector) {
-  vector < vector<int> > b;
-
-  ASSERT_ANY_THROW(Prim(b));
-}
-
 TEST(algPrim, work_with_cycle_graph) {
   vector < vector<int> > b = { { 0, 1, 1 }, { 1, 2, 2 },
     { 2, 3, 3 }, { 3, 0, 4 } };
 
-  auto a = Prim(b);
+  auto a = Prim(LS_to_graph(b));
 
   vector< edge > m;
   m.push_back(edge(0, 1));
@@ -76,7 +76,7 @@ TEST(algKruskal, graph1) {
   vector < vector<int> > b = { { 1, 1, 0, 0 }, { 0, 2, 2, 0 },
     { 0, 0, 3, 3 }, { 4, 0, 0, 4 } };
 
-  auto a = Kruskal(b);
+  auto a = Kruskal(MI_to_graph(b));
 
   vector< edge > m;
   m.push_back(edge(0, 1));
@@ -87,4 +87,18 @@ TEST(algKruskal, graph1) {
     EXPECT_EQ(m[i].f, a[i].f);
     EXPECT_EQ(m[i].s, a[i].s);
   }
+}
+
+TEST(algKruskal, work_with_graph2) {
+  vector < vector<int> > b = { { 1, 0, 1, 0, 0, 0, 0, 0 },
+  { 0, 2, 2, 0, 0, 0, 0, 0 }, { 0, 0, 3, 3, 0, 0, 0, 0 },
+  { 4, 0, 0, 4, 0, 0, 0, 0 }, { 0, 0, 2, 0, 0, 2, 0, 0 },
+  { 0, 0, 0, 0, 0, 3, 0, 3 }, { 0, 0, 1, 0, 0, 0, 1, 0 },
+  { 0, 0, 0, 0, 8, 8, 0, 0 }, { 0, 3, 0, 0, 0, 0, 0, 3 },
+  { 0, 0, 0, 0, 4, 0, 4, 0 }, { 1, 0, 0, 0, 0, 0, 1, 0 },
+  { 0, 0, 0, 0, 3, 0, 0, 3 } };
+
+  auto a = Kruskal(MI_to_graph(b));
+
+  ASSERT_ANY_THROW(Kruskal(MI_to_graph(b)));
 }

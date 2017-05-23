@@ -16,7 +16,12 @@ struct edge {
 };
 
 bool all_true(bool* a, int l);
-vector<edge> Kruskal(vector< vector< int > >);
-vector<edge> Prim(vector< vector< int > >);
+
+vector<edge> MI_to_graph(vector< vector < int > >);
+vector<edge> Kruskal(vector< edge >);
+vector< edge > LS_to_graph(vector< vector < int > >);
+vector<edge> Prim(vector< edge >);
+
+void graph_to_gv(vector< edge > graph, vector< edge > ost);
 
 #endif  // INCLUDE_ALGS_H_
